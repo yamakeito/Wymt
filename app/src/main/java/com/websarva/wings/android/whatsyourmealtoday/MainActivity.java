@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 //addMenuボタンの場合
                 case R.id.titleAddMenu:
                     //メニュー追加画面へ遷移
-                    //Intent intentadd = new Intent(getApplication(), AddMenuActivyty.class);
+                    //Intent intentadd = new Intent(getApplication(), AddMenuActivity.class);
                     //startActivity(intentadd);
                     break;
 
