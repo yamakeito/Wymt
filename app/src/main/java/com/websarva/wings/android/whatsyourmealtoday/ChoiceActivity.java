@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class ChoiceActivity extends AppCompatActivity {
@@ -86,6 +87,10 @@ public class ChoiceActivity extends AppCompatActivity {
 
             //トランザクション成功
             db.setTransactionSuccessful();
+
+            //保存されたメニュー名をトーストで表示
+            String show = _menuListName + "が保存されました";
+            Toast.makeText(ChoiceActivity.this,show,Toast.LENGTH_LONG).show();
 
         } catch (SQLException e) {
             e.printStackTrace();
