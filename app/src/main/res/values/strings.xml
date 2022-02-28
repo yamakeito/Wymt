@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">今日のごはんは？</string>
+    <string name="titleClick">GO!</string>
+    <string name="titleadd">レシピの追加</string>
+    <string name="recipesite">レシピサイトへ</string>
+    <string name="mealToday">なにが食べたい？</string>
+    <string name="choiceMenu">選択したメニュー</string>
+    <string name="btn_save">保存</string>
+    <string name="tv_name">未選択</string>
+    <string name="tv_lb_material">必要な材料は</string>
+    <string name="bt_Random">決められない時用</string>
+
+    <string-array name="menuList">
+        <item>肉じゃが</item>
+        <item>牛肉のしぐれ煮</item>
+        <item>ピーマンの肉詰め</item>
+        <item>豚の角煮</item>
+        <item>カレー</item>
+        <item>きのこたっぷり炒め</item>
+        <item>麻婆豆腐</item>
+        <item>豚肉の生姜焼き</item>
+        <item>ハンバーグ</item>
+        <item>焼き餃子</item>
+        <item>エビとマカロニのグラタン</item>
+        <item>厚焼き玉子</item>
+        <item>鶏の唐揚げ</item>
+        <item>豚カツ</item>
+        <item>れんこんのひき肉はさみ揚げ</item>
+        <item>エビフライ</item>
+        <item>天ぷら</item>
+        <item>ポテトコロッケ</item>
+        <item>ビーフステーキ</item>
+        <item>揚げ出し豆腐</item>
+        <item>豚汁</item>
+        <item>牛肉のアスパラ、チーズ巻きロール焼き</item>
+        <item>炊き込みご飯</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        app:srcCompat="@drawable/titlelogo" />
+
+    <Button
+        android:id="@+id/titleClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/titleClick"
+        android:textColor="#FFAD90"
+        android:textSize="85sp"
+        android:layout_gravity="center"
+        app:backgroundTint="#FFFFEE" />
+
+    <Button
+        android:id="@+id/titleAddMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/titleadd"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        app:backgroundTint="#EEFFFF" />
+
+    <Button
+        android:id="@+id/titleRecipeSite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/recipesite"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        android:layout_gravity="center"
+        app:backgroundTint="#EEFFFF" />
+
+
+
+</LinearLayout>
