@@ -113,23 +113,54 @@ public class ChoiceActivity extends AppCompatActivity {
     public class ListItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    //タップされた行番号をフィールドの主キーIDに代入
+                    _menuListId = position;
+                    //タップされた行のデータを取得。これがメニュー名となるので、フィールドに代入
+                    _menuListName = (String) parent.getItemAtPosition(position);
+                    //メニュー名を表示するTextViewに表示メニューを設定
+                    TextView tvChoiceMenu = findViewById(R.id.tvChoiceMenu);
+                    tvChoiceMenu.setText(_menuListName);
+                    //「保存」ボタンをタップ出来るように変更
+                    Button btnSave = findViewById(R.id.btnSave);
+                    btnSave.setEnabled(true);
+
+                    //データベースヘルパーオブジェクトからデータベース接続オブジェクトを取得
+                    SQLiteDatabase db = _helper.getWritableDatabase();
+                    //主キーによる検索SQL文字列の用意
+                    String sql = "SELECT * FROM menuMaterial WHERE _id =" + _menuListId;
+                    //SQL実行
+                    Cursor cursor = db.rawQuery(sql, null);
+                    String material = "";
+                    //SQL実行の戻り値であるカーソルオブジェクトをループさせてデータベース内のデータを取得
+                    while (cursor.moveToNext()) {
+                        //カラムのインデックス値を取得
+                        int idxMate = cursor.getColumnIndex("menuMaterial");
+                        //カラムのインデックス値を元に実際のデータを取得
+                        material = cursor.getString(idxMate);
+                    }
+                    //必要な材料のEditTextの各画面部品を取得し、データベースの値を反映
+                    EditText etMaterial = findViewById(R.id.etMaterial);
+                    etMaterial.setText(material);
+            }
+        }
+    //[決められない]ボタンが押されたときの処理
+    public class randomClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            //Randomクラス利用する
+            Random random = new Random();
+            //nextInt()に配列の大きさを入れる予定
+            int randomValue = random.nextInt(23);
+
             //タップされた行番号をフィールドの主キーIDに代入
-            _menuListId = position;
-            //タップされた行のデータを取得。これがメニュー名となるので、フィールドに代入
-            _menuListName = (String) parent.getItemAtPosition(position);
-            //メニュー名を表示するTextViewに表示メニューを設定
-            TextView tvChoiceMenu = findViewById(R.id.tvChoiceMenu);
-            tvChoiceMenu.setText(_menuListName);
-            //「保存」ボタンをタップ出来るように変更
-            Button btnSave = findViewById(R.id.btnSave);
-            btnSave.setEnabled(true);
+            _menuListId = randomValue;
 
             //データベースヘルパーオブジェクトからデータベース接続オブジェクトを取得
-            SQLiteDatabase db = _helper.getWritableDatabase();
+            SQLiteDatabase dbb = _helper.getWritableDatabase();
             //主キーによる検索SQL文字列の用意
             String sql = "SELECT * FROM menuMaterial WHERE _id =" + _menuListId;
             //SQL実行
-            Cursor cursor = db.rawQuery(sql, null);
+            Cursor cursor = dbb.rawQuery(sql, null);
             String material = "";
             //SQL実行の戻り値であるカーソルオブジェクトをループさせてデータベース内のデータを取得
             while (cursor.moveToNext()) {
@@ -138,21 +169,10 @@ public class ChoiceActivity extends AppCompatActivity {
                 //カラムのインデックス値を元に実際のデータを取得
                 material = cursor.getString(idxMate);
             }
+
             //必要な材料のEditTextの各画面部品を取得し、データベースの値を反映
-            EditText etMaterial = findViewById(R.id.etMaterial);
-            etMaterial.setText(material);
-        }
-    }
-
-    //[決められない]ボタンを押下したときにランダムに値を取得して表示させる
-    public class randomClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-
-            //Randomクラス利用する
-            Random random = new Random();
-            //nextInt()に配列の大きさを入れる予定
-            int randomValue = random.nextInt(10);
+            EditText eetMaterial = findViewById(R.id.etMaterial);
+            eetMaterial.setText(material);
         }
     }
 
